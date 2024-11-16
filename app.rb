@@ -11,7 +11,7 @@ get("/square/new") do
   erb(:square_new)
 end
 
-get("/:square/results") do
+get("/square/results") do
   @input_num = params.fetch("number").to_i
   @num_square = (@input_num ** 2).to_f
 
@@ -24,9 +24,11 @@ get("/square_root/new") do
   erb(:square_root_new)
 end
 
-get("/:square_root/results") do
+get("/square_root/results") do
   @number = params.fetch("user_number").to_i
-  @square_root = Math.sqrt(@number)
+  @square_root = Math.sqrt(@number).to_f
+
+  erb(:square_root_results)
 end
 
 get("/random/new") do
